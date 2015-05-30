@@ -1,0 +1,12 @@
+div.col-md-2 {
+  outline: 1px solid #666666;
+
+}
+
+#result-header, #calc-header {
+  outline: none;
+}
+
+.all_results {
+  display: none;
+}

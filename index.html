@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="description" content="Calculate your Commuinty Property Interest">
+	<title>Calculator</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<link href="./css/index.css" rel="stylesheet" type="text/css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+	</script>
+
+	<script src="./js/jquery.formatCurrency-1.4.0.min.js"></script>
+	<script src="./js/commprop.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+	<div class="row">
+		<div id="calc-header" class="col-md-offset-1 col-md-2">
+			<h2>Calculator</h2>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-offset-1 col-md-3">
+			<h4>Purchase Price</h4>
+			<ul class="list-group">
+				<li class="prepend field list-group-item">
+					<label for="purchase_price">Original Purchase Price</label>
+					<input type="tel" name="purchase_price" value="" id="purchase_price" class="xwide text input" placeholder="0.00"  />
+				</li>
+				<li class="prepend field  list-group-item">
+					<label for="down_payment">Down Payment</label>
+					<span class="adjoined ">$</span>
+					<input type="tel" name="down_payment" value="" id="down_payment" class="xwide text input" placeholder="0.00"  />
+				</li>
+			</ul>
+
+		</div>
+
+		<div class="col-md-3">
+			<h4>Principal Balance</h4>
+			<ul>
+				<li class="prepend field  list-group-item">
+					<label for="balance_at_marriage">At Date of Marriage</label>
+					<input type="tel" name="balance_at_marriage" value="" id="balance_at_marriage" class="xwide text input" placeholder="0.00"  />
+				</li>
+				<li class="prepend field  list-group-item">
+					<label for="balance_at_separation">At Date of Separation</label>
+					<input type="tel" name="balance_at_separation" value="" id="balance_at_separation" class="xwide text input" placeholder="0.00"  />
+				</li>
+			</ul>
+		</div>
+
+		<div class="col-md-3">
+			<h4>Fair Market Value</h4>
+			<ul>
+				<li class="prepend field  list-group-item">
+					<label for="market_at_marriage">At Date of Marriage</label>
+					<input type="tel" name="market_at_marriage" value="" id="market_at_marriage" class="xwide text input" placeholder="0.00"  />
+				</li>
+				<li class="prepend field  list-group-item">
+					<label for="market_at_separation">At Date of Separation</label>
+					<input type="tel" name="market_at_separation" value="" id="market_at_separation" class="xwide text input" placeholder="0.00"  />
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-offset-1">
+			<h5>Who purchased this property?</h5>
+			<input class="input" type="radio" name="whos_property" value="my_house" id="my_house"  />
+			<label for="my_house">I Did ( My spouse gets nothing! )</label>
+
+			<input class="input" type="radio" name="whos_property" value="spouses_house" id="spouses_house" />
+			<label for="spouces_house">My Spouse Did ( I want all I can get! )</label>
+
+		</div>
+	</div>
+
+
+	<div class="all_results">
+
+		<div class="row">
+			<div id="result-header" class="col-md-offset-1 col-md-2">
+				<h3>Your Results</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1">
+				<h4>Community Property</h4>
+				<span id="pay_spouse" style="display: none;"></span>
+
+				<span class="verbiage_1"></span>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1 col-md-2">
+				<label>Percentage</label><br>
+				 <span id="commprop_percent"></span>%
+			</div>
+
+			<div class="col-md-2">
+				<label>Appreciation</label><br><span id="commprop_appreciation"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>Payments</label><br><span id="commprop_payments"></span>
+			</div>
+
+			<div class="col-md-2">
+	 			<label>Total</label><br><span id="commprop_total"></span>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-offset-1">
+				<h4 id="separate-property"></h4>
+
+				<span class="verbiage_2"></span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1 col-md-2">
+				<label>Percentage</label><br><span id="sepprop_percent"></span>%
+			</div>
+
+			<div class="col-md-2">
+				<label>Appreciation</label><br><span id="sepprop_appreciation"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>Payments</label><br><span id="sepprop_payments"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>Total</label><br><span id="sepprop_total"></span>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-offset-1">
+				<h3>Additional Break Down</h3>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1">
+				<h4>Principal</h4>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1 col-md-2">
+				<label>Separate Payments</label><br><span id="sepprop_payments_2"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>Community Payments</label><br><span id="commprop_payments_2"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>Total</label><br><span id="total_payments"></span>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1">
+				<h4>Appreciation</h4>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-offset-1 col-md-2">
+				<label>Before Marriage</label><br><span id="sepprop_appreciation_2"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>During Marriage</label><br><span id="commprop_appreciation_2"></span>
+			</div>
+
+			<div class="col-md-2">
+				<label>Total</label><br>$<span id="total_appreciation"></span>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="footer" style="height: 140px;">
+			</div>
+		</div>
+
+	</div>
+</div>
+
+</body>
+</html>
