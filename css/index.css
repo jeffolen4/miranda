@@ -10,3 +10,7 @@ div.col-md-2 {
 .all_results {
   display: none;
 }
+
+p.error_msg {
+  display: none;
+}

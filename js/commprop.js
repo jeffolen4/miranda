@@ -150,16 +150,26 @@ $(document).ready( function() {
 
   }
 
-  $(".input").change( function () {
-
+  function processChanges (show_errors) {
+    $(".error_msg").hide();
     if ( validInputValues() == false ) {
       clearResults();
       $(".all_results").hide();
+      if (show_errors) {
+        $(".error_msg").show();
+      }
     } else {
       loadResults();
       $(".all_results").show();
     }
+  }
 
+  $("button.submit").click( function() {
+    processChanges(true)
+  })
+
+  $(".input").change( function () {
+    processChanges(false)
   });
 
 })
