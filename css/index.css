@@ -13,4 +13,6 @@ div.col-md-2 {
 
 p.error_msg {
   display: none;
+  color: red;
+  font-style: italic;
 }
