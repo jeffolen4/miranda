@@ -16,3 +16,9 @@ p.error_msg {
   color: red;
   font-style: italic;
 }
+
+button.submit {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 15px;
+}
