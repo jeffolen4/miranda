@@ -75,6 +75,10 @@ $(document).ready( function() {
     var sp_appreciation = market_at_marriage.value - purchase_price.value;
     var t_appreciation = cp_appreciation + sp_appreciation;
 
+    console.log (cp_payments)
+    console.log (cp_percent)
+    console.log (cp_appreciation)
+
     var cp_total = cp_payments + ( cp_percent * cp_appreciation );
     var sp_total = sp_payments + sp_appreciation + ( sp_percent * cp_appreciation);
 
@@ -92,12 +96,17 @@ $(document).ready( function() {
     $("#commprop_payments").formatCurrency();
     $("#commprop_payments_2").formatCurrency();
 
+
+    if(cp_total > 0) {
+      pay_spouse.innerText = cp_total / 2;
+    } else {
+      pay_spouse.innerText = 0;
+      cp_total = 0
+    }
+
     commprop_total.innerText = cp_total;
-    $("#commprop_total").formatCurrency();
-
-    pay_spouse.innerText = cp_total / 2;
     $("#pay_spouse").formatCurrency();
-
+    $("#commprop_total").formatCurrency();
 
     sepprop_percent.innerText = parseInt(100 - (cp_payments / purchase_price.value * 100));
     sepprop_appreciation.innerText = sp_total - sp_payments;
@@ -109,6 +118,10 @@ $(document).ready( function() {
     sepprop_payments_2.innerText = sp_payments;
     $("#sepprop_payments").formatCurrency();
     $("#sepprop_payments_2").formatCurrency();
+
+    if(sp_total < 0) {
+      sp_total = 0
+    }
 
     sepprop_total.innerText = sp_total;
     $("#sepprop_total").formatCurrency();
